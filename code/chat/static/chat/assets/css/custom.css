@@ -1,0 +1,362 @@
+
+/*=============================================================
+    Authour URI: www.binarycart.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+/*==============================================
+    GENERAL  STYLES    
+    =============================================*/
+html { font-size: 62.5%;}
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height:30px;
+    /* font-size: 62.5%; */
+    max-width: 1200px;
+    width: 100vh;
+    margin: 0 auto;
+}
+
+ #wrapper {
+    width: 100vw;
+    margin-top:50px;
+}
+
+#page-wrapper {
+    padding: 15px 15px;
+    min-height: 600px;
+    background:#F3F3F3;
+   
+}
+#page-inner {
+    width:100%;
+    margin:10px 20px 10px 0px;
+    background-color:#fff!important;
+    padding:10px;
+    min-height:1050px;
+}
+.pad-top {
+    padding-top:15px;
+}
+/*==============================================
+    MENU STYLES    
+    =============================================*/
+
+.sidebar-collapse .nav {
+	padding:0;
+    padding-top:50px;
+}
+
+.sidebar-collapse > .nav > li > a {
+	padding:15px 10px;
+    color: #214761;
+font-weight: 900;
+font-size: 16px;
+}
+.sidebar-collapse > .nav > li {
+	border-bottom:1px solid #e1e1e1;
+}
+.sidebar-collapse .nav > li > a:hover,
+.sidebar-collapse .nav > li > a:focus {
+	
+	background:#F3F3F3;
+	outline:0;
+}
+
+.navbar-side {
+	border:none;
+	background-color: #fff;
+	
+}
+.navbar-inverse {
+
+background-color: #214761;
+border-color: #F0F0F0;
+min-height: 80px;
+}
+
+
+.nav > li > a > i {
+    margin-right:10px;
+}
+.logout-spn {
+    float:right;
+    color:#fff;
+    font-size:25px;
+    font-weight:800;
+    margin:20px;
+    margin: 10px 25px 10px 50px;
+}
+    .logout-spn a {
+        text-decoration:none;
+    }
+.active-link {
+    background-color:#f3f3f3;
+}
+    
+/*==============================================
+    DASHBOARD STYLES    
+    =============================================*/
+.div-square {
+    padding:5px;
+    border:3px double #e1e1e1;
+    -webkit-border-radius:8px;
+   -moz-border-radius:8px;
+    border-radius:8px;
+    margin:5px;
+
+}
+
+.div-square> a,.div-square> a:hover {
+    color:#808080;
+     text-decoration:none;
+}
+/*==============================================
+    FOOTER STYLES     
+    =============================================*/
+.footer {
+    background-color:#214761;
+    width:100%;
+    color:#fff;
+    padding:20px 50px 20px 50px;
+     padding-left:20px;
+}
+
+
+    .footer > a, .footer>a:hover {
+       
+        color:#fff;
+    }
+/* tuan css */
+ul {
+    list-style: none;
+}
+li {
+    list-style: none;
+}
+.list_id {
+    /* border-radius: 5px; */
+    border-bottom: 1px solid #888;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.list_id:last-child {
+    border-bottom: none
+}
+.list_id > span {
+    /* width: 400px; */
+}
+.list_id-span {
+    /* width: 200px; */
+}
+.list_id > label {
+    width: 200px;
+}
+/* .btn_post {
+    width: 150px;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: aqua;
+    padding: 10px 0;
+    cursor: pointer;
+    text-align: center;
+    text-transform: capitalize;
+} */
+.modal {
+    animation: display linear .5s;
+    padding: 10px;
+}
+@keyframes display {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+/* @keyframes hidden {
+    from {
+        left: 0;
+    }
+    to {
+        left: -100%;
+    }
+} */
+.modal.active {
+    display: block;
+    /* animation: hidden linear .5s; */
+
+}
+.modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.4;
+}
+.modal-content {
+    position: relative;
+    width: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100vh;
+    overflow-y: auto;
+}
+.modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.3;
+    /* border-radius: 50%; */
+}
+.modal-content > ul {
+    padding: 20px;
+    overflow-y: auto;
+    height: 400px;
+}
+.modal-content > ul > li {
+    padding: 12px 10px;
+    /* border: 1px solid #333; */
+    background-color: rgb(238, 236, 236);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.modal-content > ul > li > * {
+    cursor: pointer;
+}
+.post-content {
+    padding: 20px;
+}
+.option {
+    display: flex;
+    justify-content: space-evenly;
+}
+.option-title{
+    font-size: 1.6rem;
+    color: #333;
+    
+}
+.option-all{
+    border: 1px solid #888;
+    border-radius: 5px;
+    background-color: #9999;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #fff;
+}
+.option-all:active {
+    transform: scale(0.98);
+    
+}
+.quality{
+
+}
+.btn-save {
+    border: 1px solid #888;
+    font-size: 2rem;
+    background-color: cadetblue;
+    cursor: pointer;
+    text-align: center;
+}
+.btn {
+    width: 150px;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: aqua;
+    padding: 10px 0;
+    cursor: pointer;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+/* list post */
+.list-post {
+
+}
+.list-item{
+    border-bottom: 1px solid #d3d0d0;
+    margin-bottom: 20px;
+}
+.select-post{
+    display: flex;
+    align-items: center;
+}
+input.checked-post{
+    margin: 0;
+    line-height: 1;
+}
+.title-post{
+    margin: 0 10px;
+    padding: 0;
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.desc{
+    margin-top: 10px;
+}
+.description-post{
+    font-size: 14px;
+    color: #808080;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+.image {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+.image>img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    padding: 10px;
+}
+/*==============================================
+    MEDIA QUERIES     
+    =============================================*/
+ 
+ @media(min-width:768px) {
+     #page-wrapper{
+               margin: 0 0 0 260px;
+        padding: 15px 30px;
+        min-height: 1050px;
+		
+    }
+	
+	
+    .navbar-side {
+        z-index: 1;
+        position: absolute;
+        width: 260px;
+       
+    }
+
+ 
+}
+
+

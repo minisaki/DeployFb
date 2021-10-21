@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+channels = "*"
+psycopg2-binary = "*"
+channels-redis = "*"
+djangorestframework = "*"
+requests = "*"
+pillow = "*"
+gunicorn = "*"
+daphne = "*"
+uvicorn = "*"
+supervisor = "*"
+uwsgi = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"

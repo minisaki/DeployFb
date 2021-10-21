@@ -1,0 +1,563 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Simple Responsive Admin</title>
+        <!-- BOOTSTRAP STYLES-->
+        <link
+            href="{% static 'chat/assets/css/bootstrap.css' %}"
+            rel="stylesheet"
+        />
+        <!-- FONTAWESOME STYLES-->
+        <link
+            href="{% static 'chat/assets/css/font-awesome.css' %}"
+            rel="stylesheet"
+        />
+        <!-- CUSTOM STYLES-->
+        <link
+            href="{% static 'chat/assets/css/custom.css' %}"
+            rel="stylesheet"
+        />
+        <!-- GOOGLE FONTS-->
+        <link
+            href="http://fonts.googleapis.com/css?family=Open+Sans"
+            rel="stylesheet"
+            type="text/css"
+        />
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="adjust-nav">
+                    <div class="navbar-header">
+                        <button
+                            type="button"
+                            class="navbar-toggle"
+                            data-toggle="collapse"
+                            data-target=".sidebar-collapse"
+                        >
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img
+                                src="{% static 'chat/assets/img/logo.png' %}"
+                            />
+                        </a>
+                    </div>
+
+                    <span class="logout-spn">
+                        <a href="#" style="color: #fff">LOGOUT</a>
+                    </span>
+                </div>
+            </div>
+            <!-- /. NAV TOP  -->
+            <nav class="navbar-default navbar-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="main-menu">
+                        <li class="active-link">
+                            <a href="index.html"
+                                ><i class="fa fa-desktop"></i>Dashboard
+                                <span class="badge">Included</span></a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="ui.html"
+                                ><i class="fa fa-table"></i>UI Elements
+                                <span class="badge">Included</span></a
+                            >
+                        </li>
+                        <li>
+                            <a href="blank.html"
+                                ><i class="fa fa-edit"></i>Blank Page
+                                <span class="badge">Included</span></a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#"
+                                ><i class="fa fa-qrcode"></i>My Link One</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#"
+                                ><i class="fa fa-bar-chart-o"></i>My Link Two</a
+                            >
+                        </li>
+
+                        <li>
+                            <a href="#"
+                                ><i class="fa fa-edit"></i>My Link Three
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                ><i class="fa fa-table"></i>My Link Four</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#"
+                                ><i class="fa fa-edit"></i>My Link Five
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- /. NAV SIDE  -->
+            <div id="page-wrapper">
+                <div id="page-inner">
+                    <button id="dangnhap">Đăng nhập facebook</button>
+                    <button id="dongff">đóng firefox</button>
+                    <button id="btn-like">Like Post</button>
+                    <button id="btn-feed">Lướt new feed</button>
+                    <button id="btn-like-nhieu">Like nhiều nick</button>
+                    <button id="btn-get-group">Get group</button>
+                    <button id="btn-post-group">Post status Group</button>
+                    <br />
+                    <input
+                        id="id_post"
+                        type="text"
+                        placeholder="id post"
+                        size="100"
+                    /><br />
+                    <input
+                        id="chat-message-input"
+                        type="text"
+                        size="100"
+                        placeholder="chat message"
+                    /><br />
+                    <h1>List User Facebook</h1>
+                    <ul  id="fb_id">
+                        <li class="list_id">
+                            <input type="checkbox" style="opacity: 0;">
+                            <label >facebook name</label>
+                            <span>facebook id</span>
+                            <span class="action">action</span>
+                        </li>
+                        {% for item in list_acount %}
+                        <li class="list_id">
+                            <input type="checkbox" name="{{item.username}}" id="{{ item.userid }}" value="{{ item.userid }}" class="listUser"> 
+                            <label for="{{ item.userid }}">{{item.name}}</label>
+                            <span>id: {{ item.userid }}</span>
+                            <span class="btn btn_post">Create Post</span>
+                            <span class="btn btn_get">Get Post</span>
+                        </li>
+                        <div class="post">
+                            <!-- <ul class="list_post">
+                               
+                            </ul> -->
+                        </div>
+                        <input id="cookie" type="hidden" value={{item.cookie}}>
+                        {% endfor %}
+                    </ul>
+                    <br/>
+                    <!-- <input
+                        id="fb_id"
+                        type="text"
+                        placeholder="fb id"
+                        size="100"
+                    /><br /> -->
+                    <!-- <input
+                        id="chat-message-submit"
+                        type="button"
+                        value="Send"
+                    /> -->
+
+                    
+                    <!-- <textarea id="chat-log" cols="100" rows="20"></textarea
+                    ><br /> -->
+                </div>
+               
+                <!-- /. MODAL -->
+                <div class="modal" >
+                    <div class="modal-background"></div>
+                    <div class="modal-content">
+                        <div class="post-content">
+                            <h3>Post Content</h3>
+                            <Textarea id="story" name="story"
+                            rows="5" cols="80%" placeholder="content"></Textarea>
+                            <h3 class="title-iamge">insert image</h3>
+                            <input type="file" multiple id="file">
+                        </div>
+                        <div class="option">
+                            <span class="option-title">List groups</span>
+                            <span class="option-all">Select All</span>
+                            <span class="quality">selected: 0</span>
+                        </div>
+                        <ul id="list_id_group">
+                            
+                          
+                        </ul>
+                        <div class="modal-btn">X</div>
+                        <div class="btn-save">save</div>
+                    </div>
+                   
+                </div>
+                
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <div class="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    &copy; 2014 yourdomain.com | Design by:
+                    <a
+                        href="http://binarytheme.com"
+                        style="color: #fff"
+                        target="_blank"
+                        >www.binarytheme.com</a
+                    >
+                </div>
+            </div>
+        </div>
+
+        
+
+        {{ room_name|json_script:"room-name" }}
+        <script src="{% static '/chat/assets/js/socket.js' %}"></script>
+        <script type="text/javascript">
+            const roomName = JSON.parse(
+                document.getElementById("room-name").textContent
+            );
+            console.log( window.location.host)
+            const chatSocket = new WebSocket(
+                "ws://" + window.location.host + "/ws/chat/" + roomName + "/"
+            );
+            // const chatSocket = new WebSocket(
+            //     "ws://0.0.0.0/ws/chat/" + roomName + "/"
+            // );
+
+            let idgroupFb = ''
+            
+            const btnGetGroupEl = document.querySelector("#btn-get-group")
+            btnGetGroupEl.addEventListener('click', function(){
+                const facebook_id = getIdFacebook()
+                fetch(`http://0.0.0.0/api/account/${facebook_id}`)
+            })
+            const listUserEl = document.querySelectorAll(".listUser")
+            listUserEl.forEach((item)=> {
+                    item.addEventListener('change', function(){
+                        if (item.checked) {
+                            idgroupFb = item.value
+                        } else {
+                            idgroupFb = ''
+                        }
+                        console.log(idgroupFb)
+                    })
+                })
+           
+            /*chatSocket.onmessage = function (e) {
+                const data = JSON.parse(e.data);
+                document.querySelector("#chat-log").value +=
+                    data.message + "\n";
+            };
+
+            chatSocket.onclose = function (e) {
+                console.error("Chat socket closed unexpectedly");
+            };*/
+
+            // document.querySelector("#chat-message-input").focus();
+            // document.querySelector("#chat-message-input").onkeyup = function (
+            //     e
+            // ) {
+            //     if (e.keyCode === 13) {
+            //         // enter, return
+            //         document.querySelector("#chat-message-submit").click();
+            //     }
+            // };
+
+            // document.querySelector("#chat-message-submit").onclick = function (e) {
+            //     const messageInputDom = document.querySelector("#chat-message-input");
+            //     const message = messageInputDom.value;
+            //     chatSocket.send(
+            //         JSON.stringify({
+            //             message: message,
+            //         })
+            //     );
+            //     messageInputDom.value = "";
+            // };
+
+            document.querySelector("#dangnhap").onclick = loginFb;
+
+            function loginFb() {
+                const messageInputDom1 = document.querySelector("#cookie");
+                const cookie = messageInputDom1.value;
+
+                // const messageInputDom2 = document.querySelector("#fb_id");
+                // const facebook_id = getIdFacebook();
+                // console.log(facebook_id)
+                // console.log(cookie)
+                chatSocket.send(
+                    JSON.stringify({
+                        message: "dangnhap",
+                        cookie: cookie,
+                        facebook_id: idgroupFb,
+                        action: 4,
+                    })
+                );
+                // return facebook_id
+            }
+
+            document.querySelector("#dongff").onclick = function (e) {
+                // const messageInputDom2 = document.querySelector("#fb_id");
+                // const facebook_id = messageInputDom2.value;
+
+                chatSocket.send(
+                    JSON.stringify({
+                        message: "dongff",
+                        cookie: "",
+                        action: 5,
+                        facebook_id: idgroupFb,
+                    })
+                );
+            };
+
+            document.querySelector("#btn-like").onclick = function (e) {
+                const id_post = document.querySelector("#id_post");
+                // const facebook_id = document.querySelector("#fb_id").value;
+
+                chatSocket.send(
+                    JSON.stringify({
+                        action: 1,
+                        facebook_id: idgroupFb,
+                        id_post: id_post.value,
+                    })
+                );
+            };
+
+            document.querySelector("#btn-feed").onclick = function (e) {
+                const facebook_id = document.querySelector("#fb_id").value;
+
+                chatSocket.send(
+                    JSON.stringify({
+                        action: 6,
+                        facebook_id: facebook_id,
+                    })
+                );
+            };
+
+            document.querySelector("#btn-like-nhieu").onclick = function (e) {
+                const id_post = document.querySelector("#id_post");
+                chatSocket.send(
+                    JSON.stringify({
+                        action: 7,
+                        id_post: id_post.value,
+                    })
+                );
+            };
+
+            const BtnSaveEl = document.querySelector('.btn-save')
+            const listGroups = []
+            let contentPostGroup = ''
+            let filePost
+            BtnSaveEl.addEventListener('click', function() {
+                console.log('voo ddaay')
+                const contentPost = document.querySelector('#story')
+                const file = document.querySelector('#file')
+                const listGroupsEl = document.querySelectorAll('.list-group')
+                
+                contentPostGroup = contentPost.value
+                filePost = file.files
+                console.log(filePost)
+                listGroupsEl.forEach( group => {                    
+                    if (group.checked === true) {
+                        listGroups.push(group.value)
+                    }
+                })
+                const csrftoken = getCookie('csrftoken');
+                const data = new FormData();
+                data.append('fb_id', idgroupFb)
+                data.append('content', contentPostGroup)
+                data.append('group_id', listGroups)
+                for (const file of filePost) {
+                    data.append('files', file, file.name);
+                }
+                fetch('http://0.0.0.0/api/add_post/', {
+                    headers: {'X-CSRFToken': csrftoken},
+                    method: 'POST',
+                    body: data,
+                });
+            })
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            
+            const BtnPostGroup = document.querySelector('#btn-post-group')
+            
+            BtnPostGroup.addEventListener('click', sendPost)
+            function sendPost() {
+                chatSocket.send(
+                        JSON.stringify({
+                        action: 9,
+                        facebook_id: idgroupFb,
+                        post_id: idPost
+                    }));
+            }
+            function sendFile() {
+                const file = document.querySelector('#file').files[0]
+                console.log(file)
+                var reader = new FileReader();
+                // reader.readAsDataURL(blob)
+                var rawData = new ArrayBuffer();            
+
+                reader.loadend = function() {
+
+                }
+                reader.onload = function(e) {
+                    rawData = e.target.result;
+                    // base64_value(rawData)
+                    chatSocket.binaryType = "arraybuffer";
+                    console.log(typeof(rawData))
+                    
+                    chatSocket.send(
+                        JSON.stringify({
+                        action: 9,
+                        image: rawData,
+                    }));
+                    alert("the File has been transferred.")
+                }
+
+                reader.readAsBinaryString(file);
+
+            }
+            const btnEl = document.querySelector('.modal-btn')
+            const modalEl = document.querySelector('.modal')
+            const btnPostEl = document.querySelector('.btn_post')
+            
+            
+            btnEl.addEventListener('click', function(e) {
+                modalEl.classList.remove('active')
+            })
+            btnPostEl.addEventListener('click', function(e) {
+                modalEl.classList.add('active')
+                const listId = e.target.closest('.list_id')
+                const id = listId.querySelector('.listUser')
+                idgroupFb = id.value
+                fetch(`http://0.0.0.0/api/group/${id.value}`)
+                .then(response => response.json())
+                .then(data => rendergroup(data.groups))
+                .then(()=> {
+                    const groupsEl = document.querySelectorAll('.list-group')
+                    const optionAllEl = document.querySelector('.option-all')           
+                    const quality = document.querySelector('.quality')
+                    let groupsElNumber = 0
+                    groupsEl.forEach(group => {
+                        group.addEventListener('change', function(){
+                            if (group.checked === true) {
+                            groupsElNumber++
+                            quality.innerText = `Selected: ${groupsElNumber}`}
+                            else {
+                                groupsElNumber--
+                            quality.innerText = `Selected: ${groupsElNumber}`
+                            }
+                        })
+                    })
+                    optionAllEl.addEventListener('click', function(){
+                        groupsEl.forEach(group => group.checked = true)
+                        groupsElNumber = groupsEl.length
+                        quality.innerText = `Selected: ${groupsElNumber}`
+                    })
+                })     
+            })
+            // const getPostEl = document.querySelector('.btn_get')
+            // getPostEl.addEventListener('click', function(e) {
+            //     modalEl.classList.add('active')
+            //     const listId = e.target.closest('.list_id')
+            //     const id = listId.querySelector('.listUser')
+            //     idgroupFb = id.value
+            //     fetch(`http://0.0.0.0:8000/api/add_post/?fb_id=${idgroupFb}`)
+            //     .then(response => response.json())
+            //     .then(data => console.log(data))
+            // })
+
+            function rendergroup(groups) {
+                const html = groups.map(group => {
+                    return ` <li>
+                                <input type="checkbox" value=${group.group_id} id=${group.group_id} class="list-group">
+                                <label for=${group.group_id}>${group.name}</label>
+                            </li>`
+                })
+                const fbId = document.querySelector('#list_id_group').innerHTML = html.join('')
+            }
+
+            const btnGetEl = document.querySelector('.btn_get')
+            let idPost = ''
+            // const postEl = document.querySelectorAll('.post')
+            btnGetEl.addEventListener('click', function(e){ 
+                const  listId = e.target.closest('.list_id')
+                const postEl = listId.nextSibling.nextSibling                     
+                const listPostEl = document.createElement("ul");
+                listPostEl.classList.add('list-post')
+                postEl.appendChild(listPostEl)
+                const id = listId.querySelector('.listUser')
+                idgroupFb = id.value
+                fetch(`http://0.0.0.0/api/add_post/?fb_id=${idgroupFb}`)
+                .then(response => response.json())
+                .then(data => renderListPost(data))
+                .then((html) => {
+                    listPostEl.innerHTML = html
+                })
+                .then( () => {
+                    const idPostEl = document.querySelectorAll('.checked-post')
+                    
+                    idPostEl.forEach( post => {
+                        post.addEventListener('change', function() {
+                            if(this.checked == true) {
+                                idPost = post.id
+                                
+                            } else {
+                                idPost = ''
+                            }
+                            console.log(idPost)
+                        })
+                    })
+                })
+                
+            })
+
+            function renderListPost(listPosts) {
+                const listPost = listPosts.map(post => {
+                    return `
+                    <li class="list-item" key="${post.id}">
+                        <div class="select-post">
+                            <input type="checkbox" class="checked-post" id="${post.id}">
+                            <label class="title-post" for="${post.id}">${post.title}</label>
+                        </div>
+                        <div class="desc">
+                            <p class="description-post">${post.content}</p>
+                        </div>
+                        <div class="image">
+                                ${remderImage(post.images)}
+                            </div>
+                    </li>
+                    `
+                })
+                function remderImage(images) {
+                    const html = images.map(image => {
+                        return `
+                            <img src="http://0.0.0.0${image.file}" alt="" class="image-item">
+                        `
+                    })
+                    return html.join('')
+                }
+                return listPost.join('')
+            }
+        </script>
+    </body>
+</html>
